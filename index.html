@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gold Goblin · WoW Token price alerts for Discord</title>
+  <meta name="description" content="Gold Goblin is a Discord bot that tracks the World of Warcraft Token price and alerts your server or DMs you when it hits your target. Supports US, EU, KR and TW.">
+  <meta name="theme-color" content="#0a0b10">
+  <meta property="og:title" content="Gold Goblin · WoW Token price alerts for Discord">
+  <meta property="og:description" content="Get pinged the moment the WoW Token hits your price. US, EU, KR and TW.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tainamalave.github.io/gold-goblin-site/assets/icon-512.png">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-256.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="brand" href="./">
+        <img src="assets/icon-256.png" alt="" width="28" height="28">
+        Gold Goblin
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
+        <a class="btn btn-primary btn-small" href="https://discord.com/oauth2/authorize?client_id=1545483178246930565&amp;scope=bot+applications.commands&amp;permissions=19456">Add to Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>WoW Token price alerts for Discord</span>
+          <h1>Know the moment the WoW Token hits <span class="gradient-text">your price</span>.</h1>
+          <p class="lead">Gold Goblin watches the WoW Token price and pings your server, or DMs you, the moment it crosses your target. No more refreshing the auction house.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="https://discord.com/oauth2/authorize?client_id=1545483178246930565&amp;scope=bot+applications.commands&amp;permissions=19456">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              Add to Discord
+            </a>
+            <a class="btn btn-ghost btn-large" href="#features">See features</a>
+          </div>
+          <ul class="hero-facts">
+            <li>US, EU, KR and TW</li>
+            <li>Checks every 5 minutes</li>
+            <li>Free</li>
+          </ul>
+        </div>
+
+        <div class="mock" aria-label="Example of a Gold Goblin alert in Discord" role="img">
+          <div class="mock-window">
+            <p class="mock-channel"><span>#</span>token-alerts</p>
+            <div class="msg">
+              <img class="msg-avatar" src="assets/icon-256.png" alt="">
+              <div>
+                <div class="msg-head">
+                  <span class="msg-name">Gold Goblin</span>
+                  <span class="msg-tag">BOT</span>
+                  <span class="msg-time">Today at 9:41 AM</span>
+                </div>
+                <p class="msg-text"><span class="mention">@Token Watchers</span> The US WoW Token has dropped to or below <strong>250,000g</strong>!</p>
+                <div class="embed">
+                  <div class="embed-title">WoW Token (US)</div>
+                  <div class="embed-price">248,920g</div>
+                  <div class="embed-foot">Alert #3 · Last updated by Blizzard</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">How it works</span>
+          <h2>Set it once, then forget about it</h2>
+          <p>Pick a price, and Gold Goblin keeps an eye on the token for you.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <h3>Add Gold Goblin</h3>
+            <p>Invite it to your server in two clicks. It only asks to view channels, send messages and embed links.</p>
+          </li>
+          <li class="step">
+            <h3>Set a target</h3>
+            <p>Run <code>/myalert add</code> for a DM, or <code>/tokenalert add</code> to post in a channel. Choose "drops to or below" or "rises to or above" a price.</p>
+          </li>
+          <li class="step">
+            <h3>Get alerted</h3>
+            <p>Gold Goblin checks the price every 5 minutes and alerts you once each time it crosses your target. No spam while it sits there.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Features</span>
+          <h2>Everything you need to time your token</h2>
+          <p>Built for guilds and solo players alike.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+            <h3>Live token price</h3>
+            <p><code>/token</code> shows the current price for the US, EU, KR or TW region. You can also just DM the bot "price".</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>Alerts in your DMs</h3>
+            <p>Set up to 10 personal alerts with <code>/myalert</code>. Gold Goblin DMs you the moment the price crosses your target.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+            <h3>Server alerts with role pings</h3>
+            <p>Admins can post alerts to any channel and ping a role like @Token Watchers. Each server can have up to 25 alerts.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <h3>Your region, remembered</h3>
+            <p>Set a default region for the whole server with <code>/settings</code>, or just for yourself with <code>/mysettings</code>.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+            <h3>Once, or every time</h3>
+            <p>Alerts fire each time the price crosses your target. Set <code>once</code> and the alert removes itself after it's delivered.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>No clutter</h3>
+            <p>Pick alerts to remove from a list. When a channel, role or server goes away, its alerts are cleaned up automatically.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="commands">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Commands</span>
+          <h2>A handful of slash commands</h2>
+          <p>Every price command takes an optional region.</p>
+        </div>
+        <div class="commands">
+          <div class="command">
+            <code>/token</code>
+            <p>Show the current WoW Token price.</p>
+            <span class="badge">Everyone</span>
+          </div>
+          <div class="command">
+            <code>/myalert add</code>
+            <p>Get a DM when the price drops below or rises above a target.</p>
+            <span class="badge">Everyone</span>
+          </div>
+          <div class="command">
+            <code>/myalert list · remove</code>
+            <p>See or delete your personal alerts.</p>
+            <span class="badge">Everyone</span>
+          </div>
+          <div class="command">
+            <code>/mysettings region</code>
+            <p>Pick your default region for DMs and personal alerts.</p>
+            <span class="badge">Everyone</span>
+          </div>
+          <div class="command">
+            <code>/tokenalert add</code>
+            <p>Post an alert in a channel, optionally pinging a role.</p>
+            <span class="badge badge-admin">Admins</span>
+          </div>
+          <div class="command">
+            <code>/settings region</code>
+            <p>Pick the default region for the whole server.</p>
+            <span class="badge badge-admin">Admins</span>
+          </div>
+          <div class="command">
+            <code>/help</code>
+            <p>List the commands and get an invite link.</p>
+            <span class="badge">Everyone</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Never miss a cheap token again</h2>
+          <p>Add Gold Goblin to your server and set your first alert in under a minute.</p>
+          <a class="btn btn-primary btn-large" href="https://discord.com/oauth2/authorize?client_id=1545483178246930565&amp;scope=bot+applications.commands&amp;permissions=19456">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Add to Discord
+          </a>
+          <p class="fine">Only needs View Channels, Send Messages and Embed Links.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="./">
+          <img src="assets/icon-256.png" alt="" width="28" height="28">
+          Gold Goblin
+        </a>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <p class="disclaimer">Gold Goblin is a fan project and is not affiliated with or endorsed by Blizzard Entertainment or Discord. World of Warcraft and WoW Token are trademarks of Blizzard Entertainment, Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>
