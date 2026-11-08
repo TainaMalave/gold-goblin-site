@@ -12,12 +12,124 @@
   <meta property="og:image" content="https://tainamalave.github.io/gold-goblin-site/assets/icon-512.png">
   <link rel="icon" href="assets/favicon-64.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-256.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;family=Nunito:wght@400;600;700;800;900&amp;display=swap">
   <link rel="stylesheet" href="assets/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <!-- Shared drawings: the goblin's parts, coins and props. Each character below is built from these. -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffe58a"/>
+        <stop offset="1" stop-color="#eaa200"/>
+      </linearGradient>
+      <clipPath id="peek-clip" clipPathUnits="userSpaceOnUse">
+        <rect x="-20" y="-20" width="240" height="144"/>
+      </clipPath>
+
+      <g id="gob-head" stroke="#1d1408" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M42 152C34 98 50 52 78 32C86 20 96 12 112 8C106 18 108 24 114 28C146 42 166 96 158 152C134 166 66 166 42 152Z" fill="#4b3527"/>
+        <path d="M122 30l14 18M121 40l9-6M127 48l9-6" fill="none" stroke="#24180e" stroke-width="3"/>
+        <ellipse cx="100" cy="106" rx="50" ry="54" fill="#21160d" stroke="none"/>
+        <path d="M66 98C42 88 22 72 4 56C14 86 34 114 68 130Z" fill="#8db83b"/>
+        <path d="M58 104C44 96 30 86 18 74C28 94 42 110 62 120Z" fill="#6a9128" stroke="none"/>
+        <path d="M134 98C158 88 178 72 196 56C186 86 166 114 132 130Z" fill="#8db83b"/>
+        <path d="M142 104C156 96 170 86 182 74C172 94 158 110 138 120Z" fill="#6a9128" stroke="none"/>
+        <circle cx="43" cy="123" r="7" fill="none" stroke="#f8b700" stroke-width="3.5"/>
+        <path d="M60 102C58 72 78 56 100 56C122 56 142 72 140 102C140 130 124 152 100 158C76 152 60 130 60 102Z" fill="#8db83b"/>
+        <path d="M64 116C70 140 84 152 100 156C116 152 130 140 136 116C128 136 114 146 100 148C86 146 72 136 64 116Z" fill="#6a9128" stroke="none" opacity="0.7"/>
+        <path d="M50 112C46 66 72 40 100 40C128 40 154 66 150 112C142 86 124 70 100 70C76 70 58 86 50 112Z" fill="#5a4030"/>
+      </g>
+
+      <g id="brows-sly" fill="none" stroke="#1d1408" stroke-width="6" stroke-linecap="round">
+        <path d="M68 80L95 89M132 80L105 89"/>
+      </g>
+      <g id="brows-up" fill="none" stroke="#1d1408" stroke-width="5" stroke-linecap="round">
+        <path d="M70 79Q82 71 95 78M105 78Q118 71 130 79"/>
+      </g>
+
+      <g id="eyes-sly" stroke="#1d1408" stroke-width="3" stroke-linejoin="round">
+        <path d="M70 89C80 85 92 90 96 98C88 104 74 101 70 89Z" fill="#ffd84a"/>
+        <path d="M130 89C120 85 108 90 104 98C112 104 126 101 130 89Z" fill="#ffd84a"/>
+        <circle cx="89" cy="96" r="4.5" fill="#1d1408" stroke="none"/>
+        <circle cx="119" cy="96" r="4.5" fill="#1d1408" stroke="none"/>
+      </g>
+      <g id="eyes-happy" fill="none" stroke="#1d1408" stroke-width="5" stroke-linecap="round">
+        <path d="M72 98Q83 84 94 98M106 98Q117 84 128 98"/>
+      </g>
+      <g id="eyes-wide" stroke="#1d1408" stroke-width="3">
+        <ellipse cx="84" cy="95" rx="11" ry="12" fill="#ffd84a"/>
+        <ellipse cx="116" cy="95" rx="11" ry="12" fill="#ffd84a"/>
+        <circle cx="87" cy="92" r="5" fill="#1d1408" stroke="none"/>
+        <circle cx="119" cy="92" r="5" fill="#1d1408" stroke="none"/>
+        <circle cx="89" cy="90" r="1.7" fill="#fff" stroke="none"/>
+        <circle cx="121" cy="90" r="1.7" fill="#fff" stroke="none"/>
+      </g>
+
+      <g id="mouth-grin" stroke="#1d1408" stroke-width="3.5" stroke-linejoin="round">
+        <path d="M72 122C84 146 116 146 128 122C114 130 86 130 72 122Z" fill="#3b1a0e"/>
+        <path d="M80 126L85 134L89 128ZM111 128L115 134L120 126ZM93 140L97 133L101 140Z" fill="#fff4d6" stroke="none"/>
+      </g>
+      <g id="mouth-open" stroke="#1d1408" stroke-width="3.5" stroke-linejoin="round">
+        <path d="M80 126C80 152 120 152 120 126C108 132 92 132 80 126Z" fill="#3b1a0e"/>
+        <path d="M89 143C95 138 105 138 111 143C105 149 95 149 89 143Z" fill="#e0574f" stroke="none"/>
+        <path d="M84 128L88 135L92 130ZM108 130L112 135L116 128Z" fill="#fff4d6" stroke="none"/>
+      </g>
+      <g id="gob-nose" stroke="#1d1408" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M97 90C95 104 90 114 92 122C95 130 108 130 110 122C111 114 106 102 104 90Z" fill="#7fa835" stroke-width="3.5"/>
+        <path d="M98 124q3.5 2.5 7 0" fill="none" stroke-width="2.5"/>
+      </g>
+
+      <g id="gob-body" stroke="#1d1408" stroke-width="4" stroke-linejoin="round">
+        <path d="M58 148C32 166 20 214 18 260L182 260C180 214 168 166 142 148C124 160 76 160 58 148Z" fill="#4b3527"/>
+        <path d="M100 164V260M72 172C64 200 62 232 64 260M128 172C136 200 138 232 136 260" fill="none" stroke="#33231a" stroke-width="3.5"/>
+      </g>
+
+      <g id="gob-hand" stroke="#1d1408" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M-14 4C-16 -8 -6 -14 4 -12C14 -10 18 0 14 8C10 16 -10 16 -14 4Z" fill="#8db83b" stroke-width="3.5"/>
+        <path d="M-6 -3L1 5M2 -7L9 1" fill="none" stroke="#5d8424" stroke-width="2.5"/>
+      </g>
+
+      <g id="coin">
+        <circle r="16" fill="url(#gold-grad)" stroke="#7a4f00" stroke-width="3"/>
+        <circle r="10.5" fill="none" stroke="#c98a00" stroke-width="2.5"/>
+        <path d="M0 -6L1.8 -1.8L6 0L1.8 1.8L0 6L-1.8 1.8L-6 0L-1.8 -1.8Z" fill="#fff6c8"/>
+      </g>
+      <g id="coin-flat" stroke="#1d1408" stroke-width="3" stroke-linejoin="round">
+        <path d="M-18 0v7a18 7 0 0 0 36 0v-7" fill="#c98a00"/>
+        <ellipse rx="18" ry="7" fill="url(#gold-grad)"/>
+        <ellipse rx="10" ry="3.4" fill="none" stroke="#c98a00" stroke-width="2"/>
+      </g>
+      <path id="sparkle" d="M0 -10C1 -3 3 -1 10 0C3 1 1 3 0 10C-1 3 -3 1 -10 0C-3 -1 -1 -3 0 -10Z" fill="#ffe17a"/>
+
+      <g id="spyglass" stroke="#1d1408" stroke-width="3.5" stroke-linejoin="round">
+        <rect x="0" y="-9" width="34" height="18" rx="3" fill="#6b4a2e"/>
+        <rect x="30" y="-12" width="28" height="24" rx="3" fill="url(#gold-grad)"/>
+        <rect x="55" y="-15" width="11" height="30" rx="3" fill="#6b4a2e"/>
+        <ellipse cx="67" cy="0" rx="3.5" ry="12" fill="#9ad7ff"/>
+      </g>
+      <g id="bell" stroke="#1d1408" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+        <rect x="-5" y="-2" width="10" height="14" rx="4" fill="#6b4a2e"/>
+        <path d="M-24 58C-20 54 -18 44 -18 32C-18 18 -10 10 0 10C10 10 18 18 18 32C18 44 20 54 24 58Z" fill="url(#gold-grad)"/>
+        <path d="M-8 22C-12 28 -12 38 -12 46" fill="none" stroke="#fff3b0" stroke-width="3"/>
+        <circle cx="0" cy="63" r="5.5" fill="#b97800"/>
+      </g>
+      <g id="scroll" stroke="#1d1408" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+        <rect x="-34" y="-34" width="68" height="70" rx="4" fill="#f3e2b3"/>
+        <rect x="-40" y="-42" width="80" height="13" rx="6.5" fill="#d9bf82"/>
+        <rect x="-40" y="32" width="80" height="13" rx="6.5" fill="#d9bf82"/>
+        <path d="M-22 -18H12M-22 -6H22M-22 6H8M-22 18H18" fill="none" stroke="#a88a52" stroke-width="3.5"/>
+        <path d="M-26 -22l-4 10" fill="none" stroke="#c0392b" stroke-width="3"/>
+      </g>
+    </defs>
+  </svg>
+
   <header class="site-header">
     <nav class="container nav" aria-label="Main">
-      <a class="brand" href="./">
+      <a class="brand" href="index.html">
         <img src="assets/icon-256.png" alt="" width="28" height="28">
         Gold Goblin
       </a>
@@ -32,10 +144,22 @@
 
   <main>
     <section class="hero">
+      <div class="hero-deco" aria-hidden="true">
+        <svg class="deco-coin dc1" viewBox="-20 -20 40 40"><use href="#coin"/></svg>
+        <svg class="deco-coin dc2" viewBox="-20 -20 40 40"><use href="#coin"/></svg>
+        <svg class="deco-coin dc3" viewBox="-20 -20 40 40"><use href="#coin"/></svg>
+        <svg class="deco-coin dc4" viewBox="-20 -20 40 40"><use href="#coin"/></svg>
+        <svg class="deco-coin dc5" viewBox="-20 -20 40 40"><use href="#coin"/></svg>
+        <svg class="deco-spark ds1" viewBox="-12 -12 24 24"><use href="#sparkle"/></svg>
+        <svg class="deco-spark ds2" viewBox="-12 -12 24 24"><use href="#sparkle"/></svg>
+        <svg class="deco-spark ds3" viewBox="-12 -12 24 24"><use href="#sparkle"/></svg>
+        <svg class="deco-spark ds4" viewBox="-12 -12 24 24"><use href="#sparkle"/></svg>
+      </div>
+
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy">
           <span class="eyebrow"><span class="dot"></span>WoW Token price alerts for Discord</span>
-          <h1>Know the moment the WoW Token hits <span class="gradient-text">your price</span>.</h1>
+          <h1>Know the moment the WoW Token hits <span class="gradient-text squiggle">your price</span>.</h1>
           <p class="lead">Gold Goblin watches the WoW Token price and pings your server, or DMs you, the moment it crosses your target. No more refreshing the auction house.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-large" href="https://discord.com/oauth2/authorize?client_id=1545483178246930565&amp;scope=bot+applications.commands&amp;permissions=19456">
@@ -51,22 +175,38 @@
           </ul>
         </div>
 
-        <div class="mock" aria-label="Example of a Gold Goblin alert in Discord" role="img">
-          <div class="mock-window">
-            <p class="mock-channel"><span>#</span>token-alerts</p>
-            <div class="msg">
-              <img class="msg-avatar" src="assets/icon-256.png" alt="">
-              <div>
-                <div class="msg-head">
-                  <span class="msg-name">Gold Goblin</span>
-                  <span class="msg-tag">BOT</span>
-                  <span class="msg-time">Today at 9:41 AM</span>
-                </div>
-                <p class="msg-text"><span class="mention">@Token Watchers</span> The US WoW Token has dropped to or below <strong>250,000g</strong>!</p>
-                <div class="embed">
-                  <div class="embed-title">WoW Token (US)</div>
-                  <div class="embed-price">248,920g</div>
-                  <div class="embed-foot">Alert #3 · Last updated by Blizzard</div>
+        <div class="stage">
+          <div class="goblin-wrap">
+            <div class="halo" aria-hidden="true"></div>
+            <button class="goblin-btn" type="button" aria-label="Poke Gold Goblin">
+              <img src="assets/icon-512.png" alt="" width="512" height="512">
+            </button>
+            <p class="bubble" aria-live="polite">Psst… wanna know when the token's cheap?</p>
+            <p class="loot" hidden>Looted <strong>0</strong>g</p>
+            <svg class="orbit-coin oc1" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#coin"/></svg>
+            <svg class="orbit-coin oc2" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#coin"/></svg>
+            <svg class="orbit-coin oc3" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#coin"/></svg>
+            <svg class="orbit-spark os1" viewBox="-12 -12 24 24" aria-hidden="true"><use href="#sparkle"/></svg>
+            <svg class="orbit-spark os2" viewBox="-12 -12 24 24" aria-hidden="true"><use href="#sparkle"/></svg>
+          </div>
+
+          <div class="mock" aria-label="Example of a Gold Goblin alert in Discord" role="img">
+            <div class="mock-window">
+              <p class="mock-channel"><span>#</span>token-alerts</p>
+              <div class="msg">
+                <img class="msg-avatar" src="assets/icon-256.png" alt="">
+                <div>
+                  <div class="msg-head">
+                    <span class="msg-name">Gold Goblin</span>
+                    <span class="msg-tag">BOT</span>
+                    <span class="msg-time">Today at 9:41 AM</span>
+                  </div>
+                  <p class="msg-text"><span class="mention">@Token Watchers</span> The US WoW Token has dropped to or below <strong>250,000g</strong>!</p>
+                  <div class="embed">
+                    <div class="embed-title">WoW Token (US)</div>
+                    <div class="embed-price">248,920g</div>
+                    <div class="embed-foot">Alert #3 · Last updated by Blizzard</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,25 +215,110 @@
       </div>
     </section>
 
+    <div class="ticker" aria-hidden="true">
+      <div class="band band-back">
+        <ul class="band-track">
+          <li>Shinies!</li><li>Gold!</li><li>More gold!</li><li>Tokens!</li><li>Mine, all mine!</li><li>Shinies!</li><li>Gold!</li><li>More gold!</li><li>Tokens!</li><li>Mine, all mine!</li>
+        </ul>
+        <ul class="band-track">
+          <li>Shinies!</li><li>Gold!</li><li>More gold!</li><li>Tokens!</li><li>Mine, all mine!</li><li>Shinies!</li><li>Gold!</li><li>More gold!</li><li>Tokens!</li><li>Mine, all mine!</li>
+        </ul>
+      </div>
+      <div class="band band-front">
+        <ul class="band-track">
+          <li>WoW Token alerts</li><li>US · EU · KR · TW</li><li>Checks every 5 minutes</li><li>Pings your server</li><li>DMs you directly</li><li>Free</li><li>Set it and forget it</li>
+        </ul>
+        <ul class="band-track">
+          <li>WoW Token alerts</li><li>US · EU · KR · TW</li><li>Checks every 5 minutes</li><li>Pings your server</li><li>DMs you directly</li><li>Free</li><li>Set it and forget it</li>
+        </ul>
+      </div>
+    </div>
+
     <section class="section-alt" id="how-it-works">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <span class="kicker">How it works</span>
           <h2>Set it once, then forget about it</h2>
           <p>Pick a price, and Gold Goblin keeps an eye on the token for you.</p>
         </div>
         <ol class="steps">
-          <li class="step">
-            <h3>Add Gold Goblin</h3>
-            <p>Invite it to your server in two clicks. It only asks to view channels, send messages and embed links.</p>
+          <li class="step reveal">
+            <div class="step-art">
+              <svg class="char" viewBox="0 0 280 260" aria-hidden="true" focusable="false">
+                <g transform="translate(40 0)">
+                  <use href="#gob-body"/>
+                  <use href="#gob-head"/>
+                  <use href="#brows-up"/>
+                  <use href="#eyes-happy"/>
+                  <use href="#mouth-grin"/>
+                  <use href="#gob-nose"/>
+                </g>
+                <g class="wave-arm">
+                  <path d="M195 212C209 192 225 168 239 146" fill="none" stroke="#1d1408" stroke-width="27" stroke-linecap="round"/>
+                  <path d="M195 212C209 192 225 168 239 146" fill="none" stroke="#5a4030" stroke-width="19" stroke-linecap="round"/>
+                  <use href="#gob-hand" transform="translate(243 134) rotate(-35) scale(1.15)"/>
+                </g>
+                <use href="#coin" transform="translate(110 222)"/>
+                <use href="#gob-hand" transform="translate(94 232) rotate(20) scale(1.1)"/>
+                <use class="twinkle" href="#sparkle" transform="translate(30 40)"/>
+              </svg>
+            </div>
+            <div class="step-body">
+              <h3>Add Gold Goblin</h3>
+              <p>Invite it to your server in two clicks. It only asks to view channels, send messages and embed links.</p>
+            </div>
           </li>
-          <li class="step">
-            <h3>Set a target</h3>
-            <p>Run <code>/myalert add</code> for a DM, or <code>/tokenalert add</code> to post in a channel. Choose "drops to or below" or "rises to or above" a price.</p>
+          <li class="step reveal" style="--d: 120ms">
+            <div class="step-art">
+              <svg class="char" viewBox="0 0 280 260" aria-hidden="true" focusable="false">
+                <g transform="translate(40 0)">
+                  <use href="#gob-body"/>
+                  <use href="#gob-head"/>
+                  <use href="#brows-sly"/>
+                  <use class="blink" href="#eyes-sly"/>
+                  <use href="#mouth-grin"/>
+                  <use href="#gob-nose"/>
+                </g>
+                <use href="#spyglass" transform="translate(147 96) rotate(-12)"/>
+                <path d="M201 216C205 182 203 152 197 122" fill="none" stroke="#1d1408" stroke-width="27" stroke-linecap="round"/>
+                <path d="M201 216C205 182 203 152 197 122" fill="none" stroke="#5a4030" stroke-width="19" stroke-linecap="round"/>
+                <use href="#gob-hand" transform="translate(197 108) rotate(-10) scale(1.1)"/>
+                <use class="hover-coin" href="#coin" transform="translate(252 50) scale(0.85)"/>
+                <use class="twinkle" href="#sparkle" transform="translate(234 22) scale(0.8)"/>
+                <use class="twinkle t2" href="#sparkle" transform="translate(268 82) scale(0.6)"/>
+              </svg>
+            </div>
+            <div class="step-body">
+              <h3>Set a target</h3>
+              <p>Run <code>/myalert add</code> for a DM, or <code>/tokenalert add</code> to post in a channel. Choose "drops to or below" or "rises to or above" a price.</p>
+            </div>
           </li>
-          <li class="step">
-            <h3>Get alerted</h3>
-            <p>Gold Goblin checks the price every 5 minutes and alerts you once each time it crosses your target. No spam while it sits there.</p>
+          <li class="step reveal" style="--d: 240ms">
+            <div class="step-art">
+              <svg class="char" viewBox="0 0 280 260" aria-hidden="true" focusable="false">
+                <g transform="translate(40 0)">
+                  <use href="#gob-body"/>
+                  <use href="#gob-head"/>
+                  <use href="#brows-up"/>
+                  <use class="blink" href="#eyes-wide"/>
+                  <use href="#mouth-open"/>
+                  <use href="#gob-nose"/>
+                </g>
+                <path d="M195 214C211 186 226 150 234 126" fill="none" stroke="#1d1408" stroke-width="27" stroke-linecap="round"/>
+                <path d="M195 214C211 186 226 150 234 126" fill="none" stroke="#5a4030" stroke-width="19" stroke-linecap="round"/>
+                <g class="bell-swing">
+                  <use href="#bell" transform="translate(236 114) rotate(-160)"/>
+                </g>
+                <use href="#gob-hand" transform="translate(236 116) rotate(-20) scale(1.15)"/>
+                <path class="ding" d="M236 34l-6-12M256 28V14M274 40l8-8" fill="none" stroke="#ffd25c" stroke-width="4" stroke-linecap="round"/>
+                <use class="twinkle" href="#sparkle" transform="translate(34 36)"/>
+                <use class="twinkle t2" href="#sparkle" transform="translate(20 150) scale(0.7)"/>
+              </svg>
+            </div>
+            <div class="step-body">
+              <h3>Get alerted</h3>
+              <p>Gold Goblin checks the price every 5 minutes and alerts you once each time it crosses your target. No spam while it sits there.</p>
+            </div>
           </li>
         </ol>
       </div>
@@ -101,39 +326,51 @@
 
     <section id="features">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <span class="kicker">Features</span>
           <h2>Everything you need to time your token</h2>
           <p>Built for guilds and solo players alike.</p>
         </div>
         <div class="features">
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <article class="feature reveal">
+            <svg class="peeker feature-peeker" viewBox="0 0 200 124" aria-hidden="true" focusable="false">
+              <g clip-path="url(#peek-clip)">
+                <g class="peek-head">
+                  <use href="#gob-head"/>
+                  <use href="#brows-up"/>
+                  <use class="blink" href="#eyes-wide"/>
+                  <use href="#gob-nose"/>
+                </g>
+              </g>
+              <use href="#gob-hand" transform="translate(48 124) rotate(-10) scale(1.25)"/>
+              <use href="#gob-hand" transform="translate(152 124) scale(-1.25 1.25) rotate(-10)"/>
+            </svg>
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
             <h3>Live token price</h3>
             <p><code>/token</code> shows the current price for the US, EU, KR or TW region. You can also just DM the bot "price".</p>
           </article>
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <article class="feature reveal" style="--d: 80ms">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <h3>Alerts in your DMs</h3>
             <p>Set up to 10 personal alerts with <code>/myalert</code>. Gold Goblin DMs you the moment the price crosses your target.</p>
           </article>
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <article class="feature reveal" style="--d: 160ms">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
             <h3>Server alerts with role pings</h3>
             <p>Admins can post alerts to any channel and ping a role like @Token Watchers. Each server can have up to 25 alerts.</p>
           </article>
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <article class="feature reveal">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <h3>Your region, remembered</h3>
             <p>Set a default region for the whole server with <code>/settings</code>, or just for yourself with <code>/mysettings</code>.</p>
           </article>
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <article class="feature reveal" style="--d: 80ms">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
             <h3>Once, or every time</h3>
             <p>Alerts fire each time the price crosses your target. Set <code>once</code> and the alert removes itself after it's delivered.</p>
           </article>
-          <article class="feature">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <article class="feature reveal" style="--d: 160ms">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
             <h3>No clutter</h3>
             <p>Pick alerts to remove from a list. When a channel, role or server goes away, its alerts are cleaned up automatically.</p>
           </article>
@@ -143,54 +380,98 @@
 
     <section class="section-alt" id="commands">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <span class="kicker">Commands</span>
           <h2>A handful of slash commands</h2>
           <p>Every price command takes an optional region.</p>
         </div>
-        <div class="commands">
-          <div class="command">
-            <code>/token</code>
-            <p>Show the current WoW Token price.</p>
-            <span class="badge">Everyone</span>
-          </div>
-          <div class="command">
-            <code>/myalert add</code>
-            <p>Get a DM when the price drops below or rises above a target.</p>
-            <span class="badge">Everyone</span>
-          </div>
-          <div class="command">
-            <code>/myalert list · remove</code>
-            <p>See or delete your personal alerts.</p>
-            <span class="badge">Everyone</span>
-          </div>
-          <div class="command">
-            <code>/mysettings region</code>
-            <p>Pick your default region for DMs and personal alerts.</p>
-            <span class="badge">Everyone</span>
-          </div>
-          <div class="command">
-            <code>/tokenalert add</code>
-            <p>Post an alert in a channel, optionally pinging a role.</p>
-            <span class="badge badge-admin">Admins</span>
-          </div>
-          <div class="command">
-            <code>/settings region</code>
-            <p>Pick the default region for the whole server.</p>
-            <span class="badge badge-admin">Admins</span>
-          </div>
-          <div class="command">
-            <code>/help</code>
-            <p>List the commands and get an invite link.</p>
-            <span class="badge">Everyone</span>
+        <div class="commands-layout">
+          <aside class="commands-goblin reveal">
+            <div class="goblin-badge">
+              <svg class="char" viewBox="0 0 280 260" aria-hidden="true" focusable="false">
+                <g transform="translate(40 0)">
+                  <use href="#gob-body"/>
+                  <use href="#gob-head"/>
+                  <use href="#brows-sly"/>
+                  <use class="blink" href="#eyes-sly"/>
+                  <use href="#mouth-grin"/>
+                  <use href="#gob-nose"/>
+                </g>
+                <use href="#scroll" transform="translate(140 212)"/>
+                <use href="#gob-hand" transform="translate(100 214) rotate(15) scale(1.1)"/>
+                <use href="#gob-hand" transform="translate(180 214) scale(-1.1 1.1) rotate(15)"/>
+              </svg>
+            </div>
+            <p class="bubble bubble-static">Type <code>/</code> in Discord and they all pop up!</p>
+          </aside>
+          <div class="commands reveal" style="--d: 120ms">
+            <div class="command">
+              <code>/token</code>
+              <p>Show the current WoW Token price.</p>
+              <span class="badge">Everyone</span>
+            </div>
+            <div class="command">
+              <code>/myalert add</code>
+              <p>Get a DM when the price drops below or rises above a target.</p>
+              <span class="badge">Everyone</span>
+            </div>
+            <div class="command">
+              <code>/myalert list · remove</code>
+              <p>See or delete your personal alerts.</p>
+              <span class="badge">Everyone</span>
+            </div>
+            <div class="command">
+              <code>/mysettings region</code>
+              <p>Pick your default region for DMs and personal alerts.</p>
+              <span class="badge">Everyone</span>
+            </div>
+            <div class="command">
+              <code>/tokenalert add</code>
+              <p>Post an alert in a channel, optionally pinging a role.</p>
+              <span class="badge badge-admin">Admins</span>
+            </div>
+            <div class="command">
+              <code>/settings region</code>
+              <p>Pick the default region for the whole server.</p>
+              <span class="badge badge-admin">Admins</span>
+            </div>
+            <div class="command">
+              <code>/help</code>
+              <p>List the commands and get an invite link.</p>
+              <span class="badge">Everyone</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="cta-section">
       <div class="container">
-        <div class="cta">
+        <div class="cta reveal">
+          <svg class="peeker cta-peeker" viewBox="0 0 200 124" aria-hidden="true" focusable="false">
+            <g clip-path="url(#peek-clip)">
+              <g class="peek-head">
+                <use href="#gob-head"/>
+                <use href="#brows-sly"/>
+                <use class="blink" href="#eyes-sly"/>
+                <use href="#gob-nose"/>
+              </g>
+            </g>
+            <use href="#gob-hand" transform="translate(48 124) rotate(-10) scale(1.25)"/>
+            <use href="#gob-hand" transform="translate(152 124) scale(-1.25 1.25) rotate(-10)"/>
+          </svg>
+          <svg class="cta-pile cta-pile-l" viewBox="0 0 140 100" aria-hidden="true" focusable="false">
+            <use href="#coin-flat" transform="translate(30 88)"/><use href="#coin-flat" transform="translate(30 80)"/><use href="#coin-flat" transform="translate(30 72)"/><use href="#coin-flat" transform="translate(30 64)"/>
+            <use href="#coin-flat" transform="translate(72 90)"/><use href="#coin-flat" transform="translate(72 82)"/><use href="#coin-flat" transform="translate(72 74)"/><use href="#coin-flat" transform="translate(72 66)"/><use href="#coin-flat" transform="translate(72 58)"/><use href="#coin-flat" transform="translate(72 50)"/><use href="#coin-flat" transform="translate(72 42)"/>
+            <use href="#coin-flat" transform="translate(110 90)"/><use href="#coin-flat" transform="translate(110 82)"/>
+            <use href="#coin" transform="translate(112 52) rotate(-18)"/>
+          </svg>
+          <svg class="cta-pile cta-pile-r" viewBox="0 0 140 100" aria-hidden="true" focusable="false">
+            <use href="#coin-flat" transform="translate(32 90)"/><use href="#coin-flat" transform="translate(32 82)"/><use href="#coin-flat" transform="translate(32 74)"/>
+            <use href="#coin-flat" transform="translate(70 88)"/><use href="#coin-flat" transform="translate(70 80)"/><use href="#coin-flat" transform="translate(70 72)"/><use href="#coin-flat" transform="translate(70 64)"/><use href="#coin-flat" transform="translate(70 56)"/>
+            <use href="#coin-flat" transform="translate(108 90)"/><use href="#coin-flat" transform="translate(108 82)"/><use href="#coin-flat" transform="translate(108 74)"/><use href="#coin-flat" transform="translate(108 66)"/>
+            <use href="#coin" transform="translate(30 46) rotate(14)"/>
+          </svg>
           <h2>Never miss a cheap token again</h2>
           <p>Add Gold Goblin to your server and set your first alert in under a minute.</p>
           <a class="btn btn-primary btn-large" href="https://discord.com/oauth2/authorize?client_id=1545483178246930565&amp;scope=bot+applications.commands&amp;permissions=19456">
@@ -206,7 +487,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <a class="brand" href="./">
+        <a class="brand" href="index.html">
           <img src="assets/icon-256.png" alt="" width="28" height="28">
           Gold Goblin
         </a>
@@ -218,5 +499,7 @@
       <p class="disclaimer">Gold Goblin is a fan project and is not affiliated with or endorsed by Blizzard Entertainment or Discord. World of Warcraft and WoW Token are trademarks of Blizzard Entertainment, Inc.</p>
     </div>
   </footer>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

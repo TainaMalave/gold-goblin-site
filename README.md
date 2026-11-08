@@ -10,6 +10,7 @@ It's plain HTML and CSS with no build step, published with GitHub Pages from the
 | `privacy.html` | Privacy Policy |
 | `terms.html` | Terms of Service |
 | `assets/styles.css` | Shared styles for all three pages |
+| `assets/site.js` | Main page extras: scroll-in animations and the poke-the-goblin easter egg |
 | `assets/gold-goblin-icon.PNG` | The original Gold Goblin icon |
 | `assets/icon-256.png`, `icon-512.png`, `favicon-64.png` | Smaller copies of the icon used by the pages |
 
